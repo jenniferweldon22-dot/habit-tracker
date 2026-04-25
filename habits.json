@@ -1,7 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Study Python",
-    "done": false
+    "name": "drink water",
+    "completions": [
+      "2026-04-25"
+    ]
   }
 ]

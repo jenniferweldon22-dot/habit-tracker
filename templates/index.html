@@ -3,26 +3,33 @@
 <head>
 <title>Habit Tracker</title>
 </head>
+
 <body>
+
 <h1>My Habit Tracker</h1>
 
+<!-- ADD HABIT FORM -->
 <form action="/add" method="POST">
-<input type="text" name="name" placeholder="New habit">
-<button type="submit">Add</button>
+  <input type="text" name="name" placeholder="New habit" required>
+  <button type="submit">Add</button>
 </form>
 
+<hr>
+
+<!-- HABITS LIST -->
 <ul>
 {% for habit in habits %}
-<li>
-{% if habit.done %}
-✅ {{ habit.name }}
-{% else %}
-{{ habit.name }}
-<form action="/done/{{ habit.id }}" method="POST" style="display:inline;">
-<button type="submit">Mark Done</button>
-</form>
-{% endif %}
-</li>
+  <li style="margin-bottom: 15px;">
+
+    <h3>{{ habit.name }}</h3>
+
+    <p>🔥 Streak: {{ habit.streak }} days</p>
+
+    <form action="/done/{{ habit.id }}" method="POST" style="display:inline;">
+      <button type="submit">Mark Done</button>
+    </form>
+
+  </li>
 {% endfor %}
 </ul>
 
